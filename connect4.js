@@ -160,13 +160,13 @@ function checkForWin() {
 
   for (var y = 0; y < HEIGHT; y++) {
     for (var x = 0; x < WIDTH; x++) {
-      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
+      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];              // Winning horizontally requires 4 pieces in on row (x,x+1,x+2,x+3)
+      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];               // winning vertically required 4 pieces in on col (y,y+1,y+2,y+3)
+      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]]; // winning b diagonally to the right up 1, right 1
+      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]]; // winning diagonally to the left up 1 left 1
 
-      if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
-        return true;
+      if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {       // checking if any of the conditions are met
+        return true;                                                         // return true if any of them are met to return the winner!
       }
     }
   }
